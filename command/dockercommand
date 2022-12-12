@@ -1,1 +1,3 @@
 docker run -e POSTGRES_PASSWORD=12345 -e POSTGRES_USER=vdubovsky -e POSTGRES_DB=redis_demo_db -p 5432:5432 -it postgres
+
+docker run -p 16379:6379 -d redis:6.0 redis-server --requirepass "mypass"

@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CacheConfiguration {
 
-    @Bean
+    /*@Bean
     public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager(CacheNames.getAllCacheNames());
-    }
+    }*/
 }
