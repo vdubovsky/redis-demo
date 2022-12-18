@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,8 @@ public class UserServiceImpl implements UserService {
     private final CacheManager cacheManager;
 
     @Override
+    @CacheEvict(cacheNames = {"users_cache_all", "users_cache_all_v"}, allEntries = true)
+    @CachePut(cacheNames = "users_cache", key="#result.id")
     public User create(User user) {
         user.setId(UUID.randomUUID());
         return userRepository.save(user);
