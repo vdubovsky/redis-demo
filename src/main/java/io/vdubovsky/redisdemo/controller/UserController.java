@@ -25,9 +25,19 @@ public class UserController {
         return userService.getById(id);
     }
 
+    @GetMapping("/{id}/cacheable")
+    public User getUserCacheable(@PathVariable UUID id){
+        return userService.getByIdCacheable(id);
+    }
+
     @GetMapping
     public List<User> getAllUser(){
         return userService.getAll();
+    }
+
+    @GetMapping("/v")
+    public List<User> getAllUserStartFromV(){
+        return userService.getAllStartFromV();
     }
 
 }

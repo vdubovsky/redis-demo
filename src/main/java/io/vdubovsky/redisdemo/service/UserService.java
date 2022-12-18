@@ -10,6 +10,8 @@ public interface UserService {
     User create(User userDto);
 
     User getById(UUID uuid);
+    User getByIdCacheable(UUID uuid);
 
     List<User> getAll();
+    List<User> getAllStartFromV();
 }
